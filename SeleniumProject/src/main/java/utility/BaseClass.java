@@ -38,7 +38,7 @@ public static void browser(String browserName, String url) {
 @AfterTest
 public static void closeBrowser() {
 	
-	//driver.quit();
+	driver.quit();
 }
 
 }

@@ -11,24 +11,40 @@ import org.openqa.selenium.WebElement;
 public class PaymentPage {
 
 	WebDriver driver;
-	By cardNumber = By.xpath("//input[@class='form-control inputMedium cr_crd_no payError']");
-	By cardName = By.xpath("//*[@id='card']/div[2]/div/div[2]/div[3]/div[2]/div[2]/div/input");
-	By exdate = By.xpath("//input[@class='form-control inputMedium cr_crd_exp payError']");
+	By cardNumber = By.xpath("(//input[@class='form-control inputMedium cr_crd_no'])[1]");
+	By cardName = By.xpath("(//input[@class='form-control inputMedium cr_crd_name'])[1]");
+	By exdate = By.xpath("(//input[@class='form-control inputMedium cr_crd_exp'])[1]");
 	By ccv = By.xpath("(//input[@class='gpayformFeildWrap inputMedium marginT5 cr_cvv_no'])[1]");
 	By payNow = By.xpath("(//button[@class='button green large citipatBtn btn payNowBtn'])[1]");
+	By cardNumberError = By.xpath("(//p[@class='ico13 red padT2 greyDr InvalidError'])[2]");
+	By expError = By.xpath("(//p[@class='ico13 red padT2 greyDr InvalidError'])[4]");
+	By addressError = By.xpath("//*[@id='card']/div[2]/div/div[4]/div/div/div[1]/div/p/strong");
 	
 	public PaymentPage(WebDriver driver) {
 		this.driver = driver;
 	}
-
 	
+	public String getAddressError() {
+		String error = driver.findElement(addressError).getText();
+		return error;
+	}
+
+	public String getCardNumberError() {
+		String error = driver.findElement(cardNumberError).getText();
+		return error;
+	}
+	
+	public String getCardexpError() {
+		String experror = driver.findElement(expError).getText();
+		return experror;
+	}
 	public void enterCardNumber(String num) {
-		driver.findElement(cardNumber).clear();
+		
 		driver.findElement(cardNumber).sendKeys(num);
 	}
 	
 	public void entercardName(String name) {
-		driver.findElement(cardName).clear();
+	
 		driver.findElement(cardName).sendKeys(name);
 	}
 	

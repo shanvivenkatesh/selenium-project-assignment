@@ -65,12 +65,17 @@ public class Book_Hotel extends BaseClass{
         	bookingPage.clickPaymentOption();
         	payment.enterCardNumber("123454545454");
         	payment.entercardName("MalarCharu");
-        	payment.enterexdate("2207");
+        	payment.enterexdate("1212");
         	payment.enterccv("123");
         	payment.payNow();
-			
-        	//driver.switchTo().window(winHandleBefore);
-			
+        	
+        	String cardNameError = payment.getCardNumberError();
+        	Assert.assertEquals(cardNameError, "Please Enter Valid Card Number");
+        	System.out.println(cardNameError);
+        	String cardExpError =payment.getCardexpError();
+        	Assert.assertEquals(cardExpError, "Please Enter Valid Expiry Date (MM/YY)");
+        	System.out.println(cardExpError);
+  	
 	}
 
 	
