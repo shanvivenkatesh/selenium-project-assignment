@@ -25,12 +25,16 @@ public class HotelPage {
 	By selectTheHotel = By.xpath("(//h4[@class='dwebCommonstyles__SmallSectionHeader-sc-112ty3f-7 hAEfdZ'])[1]");
 	By getTheSelectedHotelName = By.cssSelector("div:nth-child(2) h1");
 	By selectRoom = By.xpath("(//button[@class='dwebCommonstyles__ButtonBase-sc-112ty3f-10 RoomFlavorstyles__ButtonWrapper-sc-1btnl3r-15 KETBj bIgcAI'])[1]");
+	By roomAndOption = By.linkText("Room Options");
 
 	
 	public HotelPage(WebDriver driver) {
 		this.driver = driver;
 	}
 
+	public void selecRoomAndOption() {
+		driver.findElement(roomAndOption).click();
+	}
 	
 	public void selectRoom() {
 		driver.findElement(selectRoom).click();

@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="clientA.Book_Hotel">
+      <class name="clientA.VerifyHotel_Section">
         <methods>
-          <include name="bookHotel"/>
           <include name="closeBrowser"/>
+          <include name="verifyHotelSection"/>
         </methods>
-      </class> <!-- clientA.Book_Hotel -->
+      </class> <!-- clientA.VerifyHotel_Section -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
